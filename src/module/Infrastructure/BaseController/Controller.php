@@ -10,16 +10,23 @@ namespace Module\Infrastructure\BaseController;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Module\Infrastructure\BaseResponse\Response;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Http\Controllers\Controller as DefaultController;
-use Module\Infrastructure\BaseResponse\Response;
 
 abstract class Controller extends DefaultController
 {
     use Notifiable, DispatchesJobs, ValidatesRequests;
 
-    protected function response()
+    /**
+     * Call this function for json response.
+     *
+     * @param $data
+     * @param null $code
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function response($data, $code = null)
     {
-        //
+        return Response::success($data, $code);
     }
 }
