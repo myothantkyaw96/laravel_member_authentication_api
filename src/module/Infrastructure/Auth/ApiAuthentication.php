@@ -88,7 +88,7 @@ class ApiAuthentication
 
     /**
      * This function is validate api secret.
-     * 
+     *
      * @param $request
      * @throws AuthenticationException
      */

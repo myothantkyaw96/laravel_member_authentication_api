@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Module\Api\Handler\Handler as CustomExceptionHandler;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -46,6 +47,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        return CustomExceptionHandler::handle($exception);
     }
 }
